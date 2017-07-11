@@ -14,5 +14,11 @@ const render = () => {
     );
 };
 
+window.axios = require('axios');
+
+if(wpApiSettings) {
+    window.axios.defaults.headers.common['X-WP-Nonce'] = wpApiSettings.nonce;
+}
+
 store.subscribe(render);
 render();
